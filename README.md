@@ -1,4 +1,5 @@
-# ASCII Art
+# AsciiArt By:
+
     +----------------------------------------------------------------------------------------------------+
     |oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
     |oo:       ~oooo~   +oooo+:~     :o~      ~ :+   ~oooo+   ~o+        o+       ~+ooo~ ~oooo:   :oooooo|
@@ -32,7 +33,6 @@ Or install it yourself as:
       => ...untold glory follows
 
 [use the asciiart binary from the command line](https://gist.github.com/d95c95c701e181fc768e)
-
 
 ## Contributing
 
