@@ -1,12 +1,10 @@
-# Mona
-
-TODO: Write a gem description
+# ASCII Art
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'mona'
+    gem 'asciiart'
 
 And then execute:
 
@@ -14,7 +12,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install mona
+    $ gem install asciiart
 
 ## Usage
 

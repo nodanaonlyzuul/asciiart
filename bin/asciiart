@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'asciiart'
+
+file_to_convert = AsciiArt.new(ARGV[0])
+puts file_to_convert.to_ascii_art

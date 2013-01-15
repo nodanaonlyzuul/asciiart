@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in mona.gemspec
+# List gem dependencies in gemspec
 gemspec
 
 group :development do

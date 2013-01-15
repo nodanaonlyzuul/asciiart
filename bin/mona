@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'mona'
-
-file_to_convert = Mona.new(ARGV[0])
-file_to_convert.to_ascii_art

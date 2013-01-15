@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mona/version'
+require 'asciiart/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "mona"
-  gem.version       = Mona::VERSION
+  gem.name          = "asciiart"
+  gem.version       = AsciiArt::VERSION
   gem.authors       = ["nodanaonlyzuul"]
   gem.email         = ["stephen@eastmedia.com"]
   # gem.description   = %q{A command line tool to turn images into ASCII art}

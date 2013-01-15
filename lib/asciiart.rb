@@ -1,7 +1,7 @@
-require "mona/version"
+require "asciiart/version"
 require 'RMagick'
 
-class Mona
+class AsciiArt
 
   attr_accessor :file
   attr_writer   :image_chars
