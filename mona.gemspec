@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Mona::VERSION
   gem.authors       = ["nodanaonlyzuul"]
   gem.email         = ["stephen@eastmedia.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  # gem.description   = %q{A command line tool to turn images into ASCII art}
+  gem.summary       = %q{A command line tool to turn images into ASCII art}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

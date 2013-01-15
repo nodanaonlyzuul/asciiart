@@ -3,11 +3,8 @@ require 'RMagick'
 
 class Mona
 
-  CHARS     =  [" ", ".", "~", ":", "+", "=", "o", "*", "x", "^", "%", "#", "@", "$", "M", "W"]
-  FONT_ROWS = 8
-  FONT_COLS = 4
-
   attr_accessor :file
+  attr_writer   :image_chars
 
   def initialize(path_to_file)
     @file = File.new(path_to_file, "r")
@@ -16,40 +13,33 @@ class Mona
   def to_ascii_art
 
     img = Magick::Image.read(file).first
-    img.resize_to_fit!('728')
 
-    # Compute the image size in ASCII "pixels" and resize the image to have
-    # those dimensions. The resulting image does not have the same aspect
-    # ratio as the original, but since our "pixels" are twice as tall as
-    # they are wide we'll get our proportions back (roughly) when we render.
+    new_width   = 100
+    scale       = (new_width.to_f / img.columns)
+    new_height  = ((img.rows * scale) / 2).to_i
 
-    pr = img.rows / FONT_ROWS
-    pc = img.columns / FONT_COLS
-    img.resize!(pc, pr)
+    img.resize!(new_width, new_height)
 
-    img = img.quantize(16, Magick::GRAYColorspace)
+    img = img.quantize(image_chars.length, Magick::GRAYColorspace)
     img = img.normalize
 
-    # Depending on compile-time options for ImageMagick - pixel instensity is stored in different scales
-    # This will calculate the correct denominator to use
     quantum_calc = Magick::QuantumRange / Magick::QuantumPixel.to_i
 
-    # Draw the image surrounded by a border. The `view' method is slow but
-    # it makes it easy to address individual pixels. In grayscale images,
-    # all three RGB channels have the same value so the red channel is as
-    # good as any for choosing which character to represent the intensity of
-    # this particular pixel.
-
-    border = '+' + ('-' * pc) + '+'
+    border = '+' + ('-' * new_width) + '+'
     puts border
 
-    img.view(0, 0, pc, pr) do |view|
-      pr.times do |i|
+    img.view(0, 0, new_width, new_height) do |view|
+      new_height.times do |i|
       putc '|'
-      pc.times { |j| putc CHARS[view[i][j].red/quantum_calc] }
+      new_width.times { |j| putc image_chars[view[i][j].red/quantum_calc] }
       puts '|'
     end
     end
-    border
+    puts border
   end
+
+  def image_chars
+    @image_chars ||= [" ", ".", "~", ":", "+", "=", "o", "*", "x", "^", "%", "#", "@", "$", "M", "W"]
+  end
+
 end
