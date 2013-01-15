@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-require 'asciiart'
 
-file_to_convert = AsciiArt.new(ARGV[0])
-puts file_to_convert.to_ascii_art
+if ARGV[0].nil?
+  puts "You need to specify a file to convert. For example: asciiart /path/to/my.jpg\n\n"
+else
+  require 'asciiart'
+  file_to_convert = AsciiArt.new(ARGV[0])
+  puts file_to_convert.to_ascii_art
+end
