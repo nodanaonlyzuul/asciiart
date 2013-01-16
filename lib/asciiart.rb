@@ -24,18 +24,23 @@ class AsciiArt
     img = img.normalize
 
     quantum_calc = Magick::QuantumRange / Magick::QuantumPixel.to_i
-
-    border = '+' + ('-' * new_width) + '+'
-    puts border
+    
+    output = ""
+    
+    border = '+' + ('-' * new_width) + '+' + "\n"
+    output << border  
 
     img.view(0, 0, new_width, new_height) do |view|
       new_height.times do |i|
-      putc '|'
-      new_width.times { |j| putc image_chars[view[i][j].red/quantum_calc] }
-      puts '|'
+      output << '|'
+      new_width.times { |j| output << image_chars[view[i][j].red/quantum_calc] }
+      output << "|\n"
     end
     end
-    puts border
+    
+    output << border
+
+    output
   end
 
   def image_chars

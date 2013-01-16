@@ -32,7 +32,7 @@ Or install it yourself as:
     require 'asciiart'
     a = AsciiArt.new("/Users/sschor/Desktop/uncle_larry.jpg")
       => #<AsciiArt:0x00000100878678 @file=#<File:/Users/sschor/Desktop/uncle_larry.jpg>>
-    a.to_ascii_art
+    puts a.to_ascii_art
       => ...untold glory follows
 
 ### In The Command Line
