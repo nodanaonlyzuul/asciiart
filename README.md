@@ -39,11 +39,11 @@ Or install it yourself as:
 
 Local Files
 
-  $ asciiart ~/Desktop/uncle_larry.jpg
+    $ asciiart ~/Desktop/uncle_larry.jpg
 
 Remote Images
   
-  $ asciiart http://www.google.com/images/srpr/logo3w.png
+    $ asciiart http://www.google.com/images/srpr/logo3w.png
 
 ## Contributing
 
