@@ -38,9 +38,11 @@ Or install it yourself as:
 ### In The Command Line
 
 Local Files
+
   $ asciiart ~/Desktop/uncle_larry.jpg
 
 Remote Images
+  
   $ asciiart http://www.google.com/images/srpr/logo3w.png
 
 ## Contributing
