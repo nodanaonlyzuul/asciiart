@@ -2,6 +2,7 @@
 *.rbc
 .bundle
 .config
+.redcar
 .rvmrc
 .yardoc
 Gemfile.lock
