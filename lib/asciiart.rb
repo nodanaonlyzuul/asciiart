@@ -3,16 +3,18 @@ require 'RMagick'
 
 class AsciiArt
 
-  attr_accessor :file
+  attr_reader   :file
   attr_writer   :image_chars
 
   def initialize(path_to_file)
     @file = File.new(path_to_file, "r")
+    @data = file.read
+
+    self
   end
 
   def to_ascii_art
-
-    img = Magick::Image.read(file).first
+    img = Magick::Image.from_blob(@data).first
 
     new_width   = 100
     scale       = (new_width.to_f / img.columns)
