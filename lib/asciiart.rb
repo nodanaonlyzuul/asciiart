@@ -1,15 +1,15 @@
 require "asciiart/version"
 require 'RMagick'
+require 'uri'
+require 'open-uri'
 
 class AsciiArt
 
-  attr_reader   :file
   attr_writer   :image_chars
 
-  def initialize(path_to_file)
-    @file = File.new(path_to_file, "r")
-    @data = file.read
-
+  def initialize(path_to_file)    
+    # open-uri open will fallback to IO open
+    open(path_to_file) { |file| @data = file.read } 
     self
   end
 
