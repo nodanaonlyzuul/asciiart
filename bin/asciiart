@@ -35,3 +35,4 @@ if ARGV.length == 0
 end
 
 puts AsciiArt.new(ARGV[0]).to_ascii_art(options)
+
