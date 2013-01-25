@@ -1,9 +1,37 @@
 #!/usr/bin/env ruby
-require 'asciiart'
 
-if ARGV[0].nil?
-  puts "Specify a path or URL to convert\n"
-  exit
-else
-    puts AsciiArt.new(ARGV[0]).to_ascii_art
+require 'asciiart'
+require 'optparse'
+
+options = {}
+opt_parser = OptionParser.new do |opts|
+  opts.banner = 'Usage: asciiart [options] <path_or_url>'
+
+  opts.on('-w', '--width WIDTH', 'Width of the finished Ascii Art (Default: 100)') do |width|
+    options[:width] = width.to_i
+  end
+
+  opts.on_tail('-v', '--version', 'Show AsciiArt version') do
+    puts 'AsciiArt version ' + AsciiArt::VERSION
+    exit
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
 end
+
+begin
+  opt_parser.parse!
+rescue OptionParser::MissingArgument => e
+  puts "ERROR: #{e.message.capitalize}\n#{opt_parser}"
+  exit
+end
+
+if ARGV.length == 0
+  puts "ERROR: You must specify a path or URL to convert\n#{opt_parser}"
+  exit
+end
+
+puts AsciiArt.new(ARGV[0]).to_ascii_art(options)
