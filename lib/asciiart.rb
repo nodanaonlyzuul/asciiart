@@ -13,10 +13,13 @@ class AsciiArt
     self
   end
 
-  def to_ascii_art
+  def to_ascii_art(options = {})
+    default_options = { width: 100 }
+    options         = default_options.merge(options)
+    
     img = Magick::Image.from_blob(@data).first
 
-    new_width   = 100
+    new_width   = options[:width]
     scale       = (new_width.to_f / img.columns)
     new_height  = ((img.rows * scale) / 2).to_i
 
