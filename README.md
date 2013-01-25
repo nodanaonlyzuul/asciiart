@@ -95,6 +95,42 @@ _or_
     +----------------------------------------------------------------------------------------------------+
      => nil
 
+_or make it thinner_
+
+	require 'asciiart'
+    a = AsciiArt.new("https://f.cloud.github.com/assets/54012/36827/2081922c-5377-11e2-9e39-3fafca0cdb79.png")
+      => #<AsciiArt:0x007fa889cbacf8 @data="...">
+
+
+	print a.to_ascii_art(width: 50)
+	+--------------------------------------------------+
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	|oooooooooooooooooo===++++====ooooooooooooooooooooo|
+	|ooooooooooooo=+:~.~........~~~:+=ooooooooooooooooo|
+	|oooooooooo==:~...~~:++++++:~~..~~:+=oooooooooooooo|
+	|oooooooo=+:...~++====oooo====+:~..~:+=oooooooooooo|
+	|ooooooo=+~..~:++==ooooooooooo=++:~..~+=ooooooooooo|
+	|oooooo=+~.~:+=+~.~~~~~~~~:~~~.~:++:~.~+=oooooooooo|
+	|ooooo=+~~.+===~................~+==:.~~+=ooooooooo|
+	|ooooo=:~~:+=+:~................~~+=+:~.:=ooooooooo|
+	|ooooo=~.~+==+~...................+==+~.:=ooooooooo|
+	|ooooo=~~~+==:~...................:==+~.:=ooooooooo|
+	|ooooo=~~~:==+~..................~+==+~.~=ooooooooo|
+	|ooooo=:~~~+=++~.................:+=+~~~:=ooooooooo|
+	|ooooo=+:..~+==+~~...........~~~+==+~..:+=ooooooooo|
+	|ooooooo+:..~:+=o=+:........:+====:~.~:==oooooooooo|
+	|oooooooo=+~.~~:+==+~......~+==+:~..~:+oooooooooooo|
+	|ooooooooo=+:~..~~:~~.......~:~~..~:+oooooooooooooo|
+	|oooooooooooo=+~~..............~:+=oooooooooooooooo|
+	|ooooooooooooooo==++:~~~~~~:++==ooooooooooooooooooo|
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
+	+--------------------------------------------------+
+
 ### In The Command Line
 
 Local Files
@@ -104,6 +140,15 @@ Local Files
 Remote Images
 
     $ asciiart http://www.google.com/images/srpr/logo3w.png
+
+Get Help
+
+	$ asciiart -h
+
+	Usage: asciiart [options] <path_or_url>
+	    -w, --width WIDTH                Width of the finished Ascii Art (Default: 100)
+	    -v, --version                    Show AsciiArt version
+	    -h, --help                       Show this message
 
 ## Contributing
 
