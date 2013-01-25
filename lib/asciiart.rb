@@ -46,5 +46,9 @@ class AsciiArt
   def image_chars
     @image_chars ||= ' .~:+=o*x^%#@$MW'.chars.to_a
   end
+
+  def inspect
+    "#<#{self.class.to_s}>"
+  end
 end
 
