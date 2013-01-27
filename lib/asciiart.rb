@@ -42,7 +42,7 @@ class AsciiArt
 
           if options[:color]
             pix       = color_image.pixel_color(j,i)
-            charecter = charecter.color(pix.red/257, pix.green/257, pix.blue/257)
+            charecter = charecter.color(unified_rgb_value(pix.red), unified_rgb_value(pix.green), unified_rgb_value(pix.blue))
           end
 
           output << character
@@ -61,5 +61,12 @@ class AsciiArt
   def inspect
     "#<#{self.class.to_s}>"
   end
+
+private
+
+  def unified_rgb_value(number)
+    (Magick::QuantumDepth == 16) ? (number / 257) : number
+  end
+
 end
 
