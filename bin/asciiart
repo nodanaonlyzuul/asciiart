@@ -11,6 +11,10 @@ opt_parser = OptionParser.new do |opts|
     options[:width] = width.to_i
   end
 
+  opts.on('-c', '--color', 'Switch to use colored terminal output (Default: false)') do
+    options[:color] = true
+  end
+
   opts.on_tail('-v', '--version', 'Show AsciiArt version') do
     puts 'AsciiArt version ' + AsciiArt::VERSION
     exit
