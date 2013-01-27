@@ -63,7 +63,7 @@ class AsciiArt
 private
 
   def unified_rgb_value(number)
-    (Magick::QuantumDepth == 16) ? (number / 257) : number
+    (Magick::QuantumDepth == 16) ? (number / 256) : number
   end
 
 end
