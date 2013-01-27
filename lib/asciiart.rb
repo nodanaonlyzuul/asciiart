@@ -22,12 +22,10 @@ class AsciiArt
     width       = options[:width]
     scale       = (width.to_f / img.columns)
     height      = ((img.rows * scale) / 2).to_i
-    colorspace  = (options[:color]) ? Magick::RGBColorspace : Magick::GRAYColorspace
-
 
     img.resize!(width, height)
     color_image   = img.dup if options[:color]
-    img           = img.quantize(image_chars.length, colorspace).normalize
+    img           = img.quantize(image_chars.length, Magick::GRAYColorspace).normalize
     quantum_calc  = Magick::QuantumRange / Magick::QuantumPixel.to_i
 
     border = "+#{'-' * width}+\n"
