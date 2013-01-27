@@ -38,14 +38,14 @@ class AsciiArt
         output << '|'
         width.times do |j|
 
-          charecter = image_chars[view[i][j].red/quantum_calc]
+          character = image_chars[view[i][j].red/quantum_calc]
 
           if options[:color]
             pix       = color_image.pixel_color(j,i)
-            charecter = charecter.color(pix.red/256, pix.green/256, pix.blue/256)
+            character = character.color(pix.red/255, pix.green/255, pix.blue/255)
           end
 
-          output << charecter
+          output << character
         end
         output << "|\n"
       end
