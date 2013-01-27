@@ -42,7 +42,7 @@ class AsciiArt
 
           if options[:color]
             pix       = color_image.pixel_color(j,i)
-            character = character.color(pix.red/255, pix.green/255, pix.blue/255)
+            charecter = charecter.color(pix.red/257, pix.green/257, pix.blue/257)
           end
 
           output << character
