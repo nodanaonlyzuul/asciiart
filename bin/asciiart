@@ -3,7 +3,9 @@
 require 'asciiart'
 require 'optparse'
 
-options = {}
+options       = {}
+invert_chars  = false
+
 opt_parser = OptionParser.new do |opts|
   opts.banner = 'Usage: asciiart [options] <path_or_url>'
 
@@ -15,6 +17,10 @@ opt_parser = OptionParser.new do |opts|
     options[:color] = true
   end
 
+  opts.on('-i', '--invert-chars', 'Invert the character map. Depending on your terminal and image this can make the image clearer (or a lot worse)') do
+    invert_chars = true
+  end
+
   opts.on_tail('-v', '--version', 'Show AsciiArt version') do
     puts 'AsciiArt version ' + AsciiArt::VERSION
     exit
@@ -24,6 +30,7 @@ opt_parser = OptionParser.new do |opts|
     puts opts
     exit
   end
+
 end
 
 begin
@@ -38,5 +45,9 @@ if ARGV.length == 0
   exit
 end
 
-puts AsciiArt.new(ARGV[0]).to_ascii_art(options)
+art = AsciiArt.new(ARGV[0])
+
+art.image_chars = art.image_chars.reverse if invert_chars
+
+puts art.to_ascii_art(options)
 
