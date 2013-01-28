@@ -131,6 +131,15 @@ _or make it thinner_
 	|oooooooooooooooooooooooooooooooooooooooooooooooooo|
 	+--------------------------------------------------+
 
+Add color with the "color" option
+
+	require 'asciiart'
+    a = AsciiArt.new("http://www.evangogh.org/images/paintings/self-portrait.jpg")
+      => #<AsciiArt:0x007fa889cbacf8 @data="...">
+
+	puts a.to_ascii_art(color: true) =>
+	[Booyah!](http://farm9.staticflickr.com/8080/8424360420_8011af48fe_b.jpg)
+
 ### In The Command Line
 
 Local Files
@@ -147,6 +156,8 @@ Get Help
 
 	Usage: asciiart [options] <path_or_url>
 	    -w, --width WIDTH                Width of the finished Ascii Art (Default: 100)
+	    -c, --color                      Switch to use colored terminal output (Default: false)
+	    -i, --invert-chars               Invert the character map. Depending on your terminal and image this can make the image clearer (or a lot worse)
 	    -v, --version                    Show AsciiArt version
 	    -h, --help                       Show this message
 
