@@ -138,7 +138,8 @@ Add color with the "color" option
       => #<AsciiArt:0x007fa889cbacf8 @data="...">
 
 	puts a.to_ascii_art(color: true) =>
-	[Booyah!](http://farm9.staticflickr.com/8080/8424360420_8011af48fe_b.jpg)
+
+[Booyah!](http://farm9.staticflickr.com/8080/8424360420_8011af48fe_b.jpg)
 
 ### In The Command Line
 
