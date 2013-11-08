@@ -151,16 +151,21 @@ Remote Images
 
     $ asciiart http://www.google.com/images/srpr/logo3w.png
 
+Output it as HTML
+
+    $ be asciiart -c -f html ~/Ross/cppsource/secret/noopen/sillhere?/turnback/bea-arthur-birthdaysuit.jpg > ~/Desktop/ascii-as-html.html
+
 Get Help
 
 	$ asciiart -h
 
 	Usage: asciiart [options] <path_or_url>
-	    -w, --width WIDTH                Width of the finished Ascii Art (Default: 100)
-	    -c, --color                      Switch to use colored terminal output (Default: false)
-	    -i, --invert-chars               Invert the character map. Depending on your terminal and image this can make the image clearer (or a lot worse)
-	    -v, --version                    Show AsciiArt version
-	    -h, --help                       Show this message
+      -w, --width WIDTH                Width of the finished Ascii Art (Default: 100)
+      -f, --format [text/html]         output format (Default: text)
+      -c, --color                      Switch to use colored terminal output (Default: false)
+      -i, --invert-chars               Invert the character map. *Depending on background and image color - this can make the result clearer.*
+      -v, --version                    Show AsciiArt version
+      -h, --help                       Show this message
 
 ## Contributing
 
