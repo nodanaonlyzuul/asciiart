@@ -15,7 +15,7 @@ class AsciiArt
   end
 
   def to_ascii_art(options = {})
-    options = { width: 100, color: false }.merge(options)
+    options = { width: 100, color: false, format: "text" }.merge(options)
 
     img = Magick::Image.from_blob(@data).first
 
@@ -28,7 +28,9 @@ class AsciiArt
     img           = img.quantize(image_chars.length, Magick::GRAYColorspace).normalize
     quantum_calc  = Magick::QuantumRange / Magick::QuantumPixel.to_i
 
-    border = "+#{'-' * width}+\n"
+    border = "+#{'-' * width}+#{line_break(options[:format])}"
+    border = html_char(border) if options[:format] == "html"
+
     output = border.dup
 
     img.view(0, 0, width, height) do |view|
@@ -38,14 +40,26 @@ class AsciiArt
 
           character = image_chars[view[i][j].red/quantum_calc]
 
-          if options[:color]
-            pix       = color_image.pixel_color(j,i)
-            character = character.color(unified_rgb_value(pix.red), unified_rgb_value(pix.green), unified_rgb_value(pix.blue))
+          if options[:format] == "html"
+            if (options[:color])
+              pix = color_image.pixel_color(j,i)
+              color_string = "color: rgb(#{unified_rgb_value(pix.red)},#{unified_rgb_value(pix.green)},#{unified_rgb_value(pix.blue)});"
+            else
+              color_string = ""
+            end
+            character = html_char(character, color_string)
+          else
+            # text-format
+            if options[:color]
+              pix       = color_image.pixel_color(j,i)
+              character = character.color(unified_rgb_value(pix.red), unified_rgb_value(pix.green), unified_rgb_value(pix.blue))
+            end
           end
 
           output << character
         end
-        output << "|\n"
+
+        output << "|#{line_break(options[:format])}"
       end
     end
 
@@ -62,9 +76,16 @@ class AsciiArt
 
 private
 
+  def line_break(format)
+    (format == "text") ? "\n" : "<br/>"
+  end
+
   def unified_rgb_value(number)
     (Magick::QuantumDepth == 16) ? (number / 256) : number
   end
 
+  def html_char(char, additional_style = "")
+    "<font style=\"font-family: 'Lucida Console', Monaco, monospace; #{additional_style}\">#{char}</font>"
+  end
 end
 

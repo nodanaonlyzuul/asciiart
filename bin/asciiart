@@ -13,6 +13,10 @@ opt_parser = OptionParser.new do |opts|
     options[:width] = width.to_i
   end
 
+  opts.on('-f', '--format [text/html]', 'output format (Default: text)') do |format|
+    options[:format] = format
+  end
+
   opts.on('-c', '--color', 'Switch to use colored terminal output (Default: false)') do
     options[:color] = true
   end
