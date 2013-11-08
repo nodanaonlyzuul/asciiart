@@ -155,6 +155,10 @@ Output it as HTML
 
     $ be asciiart -c -f html ~/Ross/cppsource/secret/noopen/sillhere?/turnback/bea-arthur-birthdaysuit.jpg > ~/Desktop/ascii-as-html.html
 
+_or smaller_
+
+    $ be asciiart -w 50 -c -f html ~/Stephen/boringSQLsnippets/nothingtoseehere/turnback/bea-arthur-with-ross's-head.jpg > ~/Desktop/saturdaynight.html
+
 Get Help
 
 	$ asciiart -h
