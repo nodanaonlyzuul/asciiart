@@ -86,7 +86,7 @@ private
   end
 
   def html_char(char, additional_style = "")
-    "<font style=\"font-family: 'Lucida Console', Monaco, monospace; #{additional_style}\">#{char}</font>"
+    "<span style=\"font-family: 'Lucida Console', Monaco, monospace; #{additional_style}\">#{char}</span>"
   end
 end
 
