@@ -42,8 +42,9 @@ class AsciiArt
 
           if options[:format] == "html"
             if (options[:color])
+
               pix = color_image.pixel_color(j,i)
-              color_string = "color: rgb(#{unified_rgb_value(pix.red)},#{unified_rgb_value(pix.green)},#{unified_rgb_value(pix.blue)});"
+              color_string = "color: #{pix.to_color( Magick::AllCompliance,false,8, true)};"
             else
               color_string = ""
             end
