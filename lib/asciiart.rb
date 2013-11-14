@@ -27,7 +27,8 @@ class AsciiArt
     color_image   = img.dup if options[:color]
     img           = img.quantize(image_chars.length, Magick::GRAYColorspace).normalize
     quantum_calc  = Magick::QuantumRange / Magick::QuantumPixel.to_i
-
+    image_chars.map! {|char| char == " " ? "&nbsp;" : char } if options[:format] == "html"
+    
     border = "+#{'-' * width}+#{line_break(options[:format])}"
     border = html_char(border) if options[:format] == "html"
 
