@@ -171,6 +171,10 @@ Get Help
       -v, --version                    Show AsciiArt version
       -h, --help                       Show this message
 
+## Requirements
+
+This app requires Ruby 1.9
+
 ## Contributing
 
 1. Fork it
