@@ -1,4 +1,4 @@
-# AsciiArt By:
+# Developed At:
 
     +----------------------------------------------------------------------------------------------------+
     |oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo|
