@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency('rmagick')
-  gem.add_dependency('rainbow')
+  gem.add_dependency('rainbow', "2.0.0")
 
   gem.add_development_dependency('pry')
 end
