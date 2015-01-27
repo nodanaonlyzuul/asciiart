@@ -84,7 +84,11 @@ private
   end
 
   def unified_rgb_value(number)
-    (Magick::QuantumDepth == 16) ? (number / 256) : number
+    if defined?(Magick::QuantumDepth)
+      return (Magick::QuantumDepth == 16) ? (number / 256) : number
+    else
+      return (Magick::QuantumRange == 65535) ? (number / 256) : number
+    end
   end
 
   def html_char(char, additional_style = "")
