@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency('rmagick', '2.13.4')
   gem.add_dependency('rainbow', '2.0.0')
-
+  
+  gem.add_development_dependency('rake-compiler', '~> 0.9.5')
   gem.add_development_dependency('pry')
 end
