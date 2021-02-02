@@ -6,7 +6,7 @@ require 'asciiart/version'
 Gem::Specification.new do |gem|
   gem.name          = "asciiart"
   gem.version       = AsciiArt::VERSION
-  gem.authors       = ["nodanaonlyzuul", "rosscooperman", "caderaspindrift"]
+  gem.authors       = ["nodanaonlyzuul", "rosscooperman", "caderaspindrift", "wendy0402"]
   gem.email         = ["stephen@eastmedia.com"]
   # gem.description   = %q{A command line tool to turn images into ASCII art}
   gem.summary       = %q{A command line tool to turn images into ASCII art}
