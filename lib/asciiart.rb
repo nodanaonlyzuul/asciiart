@@ -14,7 +14,7 @@ class AsciiArt
 
   def initialize(path_to_file)
     # open-uri open will fallback to IO open
-    open(path_to_file) { |file| @data = file.read }
+    URI.open(path_to_file) { |file| @data = file.read }
     self
   end
 
@@ -25,4 +25,3 @@ class AsciiArt
     renderer.to_ascii_art(options)
   end
 end
-
