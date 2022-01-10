@@ -45,10 +45,11 @@ module AsciiRenderer
     private
     def unified_rgb_value(number)
       if defined?(Magick::QuantumDepth)
-        return (Magick::QuantumDepth == 16) ? (number / 256) : number
+        num = (Magick::QuantumDepth == 16) ? (number / 256) : number
       else
-        return (Magick::QuantumRange == 65535) ? (number / 256) : number
+        num = (Magick::QuantumRange == 65535) ? (number / 256) : number
       end
+      (num > 255) ? 255 : num
     end
 
   end
